@@ -36,6 +36,12 @@ document.addEventListener("keypress", ()=>{
         levelUp();
     }
 });
+document.addEventListener("click", ()=>{
+    if(started==false){
+        started = true;
+        levelUp();
+    }
+});
 function checkAns(i){
     if(userSeq[i]==gameSeq[i]){
         if(i==gameSeq.length-1){
