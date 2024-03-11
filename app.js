@@ -55,7 +55,7 @@ function checkAns(i) {
     maxS.innerHTML = `<b style="color:brown">Max. Score = ${maxScore}</b>`;
     h3.innerHTML = `Game Over! Your final score was <b style="color:brown; font-size: 2rem">${score}</b><br>Want to play again?`;
     start.style.display = "block";
-    start.innerText = "Yes Please!";
+    start.innerText = "YES!";
     reset();
   }
 }

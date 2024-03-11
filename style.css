@@ -70,3 +70,18 @@ h3 {
     background-color: beige;
     color: brown;
 }
+
+@media (max-width: 600px) {
+    .boxes {
+        height: 50%;
+        width: 80%;
+    }
+
+    .box {
+        height: 40%;
+        width: 40%;
+        border: 5px solid black;
+        border-radius: 1rem;
+        opacity: 0.8;
+    }
+}
