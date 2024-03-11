@@ -6,6 +6,7 @@ let four = document.querySelector(".four");
 let body = document.querySelector("body");
 let h3 = document.querySelector(".lev");
 let maxS = document.querySelector(".maxScore");
+let start = document.querySelector("#start");
 let gameSeq = [];
 let userSeq = [];
 let btns = [one, two, three, four];
@@ -30,17 +31,14 @@ function levelUp() {
   flash(btns[n]);
   gameSeq.push(btns[n]);
 }
-document.addEventListener("keypress", () => {
-  if (started == false) {
-    started = true;
-    levelUp();
-  }
-});
-document.addEventListener("dblclick", () => {
-  if (started == false) {
-    started = true;
-    setTimeout(levelUp(), 1000);
-  }
+start.addEventListener("click", () => {
+  setTimeout(function () {
+    if (started == false) {
+      started = true;
+      levelUp();
+      start.style.display = "none";
+    }
+  }, 200);
 });
 function checkAns(i) {
   if (userSeq[i] == gameSeq[i]) {
@@ -54,8 +52,10 @@ function checkAns(i) {
     }, 100);
     score = gameSeq.length;
     if (score > maxScore) maxScore = score;
-    maxS.innerText = `Max. Score = ${maxScore}`;
-    h3.innerHTML = `Game Over! Your final score was <b>${score}<b><br>Press any key or double click to start again.`;
+    maxS.innerHTML = `<b style="color:brown">Max. Score = ${maxScore}</b>`;
+    h3.innerHTML = `Game Over! Your final score was <b style="color:brown; font-size: 2rem">${score}</b><br>Want to play again?`;
+    start.style.display = "block";
+    start.innerText = "Yes Please!";
     reset();
   }
 }
